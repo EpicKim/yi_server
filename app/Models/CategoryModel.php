@@ -38,32 +38,28 @@ class CategoryModel extends Model
             'code'=>0,
             'data'=>$parent,
         ];
-//        $parent=CommonService::arrayKey($parent,'id');
-//        if(!$parent){
-//            return false;
-//        }
 
-//        $son=self::where('parent_id','<>',1)
-//            ->where('is_show',1)
-//            ->orderBy('z_index','asc')
-//            ->select(['id','name','img','thumb_img','parent_id'])
-//            ->get()
-//            ->toArray();
-//        if(!$son){
-//            return false;
-//        }
-//
-//        $data=[];
-//
-//        foreach($parent as $parent_id=>$p){
-//            $data[$parent_id]=$p;
-//            foreach($son as $s){
-//                if($s['parent_id']==$parent_id){
-//                    $data[$parent_id]['son'][]=$s;
-//                }
-//            }
-//        }
+    }
 
+    /**
+     * 根据id获取子分类
+     * @param $id
+     * @return array|bool
+     */
+    public static function getSonCategoriesByID($id){
+        $son=self::where('parent_id','=',$id)
+            ->where('is_show',1)
+            ->orderBy('z_index','asc')
+            ->select(['id','name','img','thumb_img','parent_id'])
+            ->get()
+            ->toArray();
+        if(!$son){
+            return false;
+        }
+        return [
+            'code'=>0,
+            'data'=>$son
+        ];
     }
 
 
