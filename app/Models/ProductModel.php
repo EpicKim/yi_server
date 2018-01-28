@@ -55,10 +55,12 @@ class ProductModel extends Model
             $val['product_img']=$product_img[$val['id']]['thumb_img'];
         }
 
-        $data['page_total']=$page_total;
         return [
             'code'=>0,
-            'data'=>$data
+            'data'=>[
+                'product'=>$data,
+                'page_total'=>$page_total
+                ],
         ];
 
     }
