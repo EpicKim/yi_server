@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Api\YiYi;
 
 use App\Models\CategoryModel;
+use App\Models\ProductModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class YYApi{
@@ -34,6 +35,21 @@ class YYApi{
             return $this->ret;
         }
         return $data;
+    }
+
+    //商品列表页面
+    public function productList(Request $request){
+        $categoryID=$request->input('categoryID',0);
+        $page=$request->input('page',1);
+        $size=$request->input('size',10);
+        if(!$categoryID){
+            $this->ret['error']='参数不正确';
+            return $this->ret;
+        }
+
+        $data=ProductModel::productList($categoryID,$page,$size);
+        return $data;
+
     }
 
 

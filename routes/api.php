@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //分类接口
 Route::get('/yiyi/category/parent','Api\YiYi\YYApi@parentCategories');
 Route::get('/yiyi/category/son','Api\YiYi\YYApi@getSonCategoriesByID');
+
+//商品接口
+Route::get('yiyi/product/list','Api\YiYi\YYApi@productList');
