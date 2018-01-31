@@ -52,6 +52,22 @@ class YYApi{
 
     }
 
+    //商品详情
+    public function productDetail(Request $request){
+        $productID=$request->input('productID',0);
+        if(!$productID){
+            $this->ret['error']='参数不正确';
+            return $this->ret;
+        }
+        $data=ProductModel::getProductByID($productID);
+        if(!$data){
+            $this->ret['error']='未查询出数据';
+            return $this->ret;
+        }
+        return $data;
+
+    }
+
 
 
 }
