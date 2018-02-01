@@ -112,7 +112,7 @@ class ProductModel extends Model
             $i++;
         }
         return [
-            'code'=>1,
+            'code'=>0,
             'data'=>$ret,
         ];
 
