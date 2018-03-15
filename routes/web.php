@@ -14,4 +14,3 @@
 Route::redirect('/','/admin',302);
 
 
-

@@ -62,6 +62,8 @@ class YYLog{
             'data'=>'',
         ];
 
+
+
     }
 
 

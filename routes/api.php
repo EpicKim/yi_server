@@ -35,3 +35,9 @@ Route::get('yiyi/product/detail','Api\YiYi\YYApi@productDetail');
 Route::post('/yiyi/category/log','Api\YiYi\YYLog@categoryLog');
 //商品点击log
 Route::post('yiyi/product/log','Api\YiYi\YYLog@productLog');
+
+
+/* 通知接口 */
+
+//发送邮件与短信
+Route::post('yiyi/notice/mailsms','Api\YiYi\YYNotice@mailAndSMS');
